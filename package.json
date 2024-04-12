@@ -3,24 +3,37 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@formio/js": "^5.0.0-rc.42",
+    "@formio/react": "^5.3.0-rc.3",
+    "@r2wc/react-to-web-component": "^2.0.3",
+    "axios": "^1.6.8",
+    "bootstrap-icons": "^1.11.3",
+    "bootstrap-italia": "^2.8.4",
+    "date-fns": "^3.6.0",
+    "design-react-kit": "^5.0.1",
+    "formiojs": "^4.19.1",
+    "loader-utils": "^3.2.1",
     "react": "^18.2.0",
+    "react-datepicker": "^6.6.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "react-shadow-root": "^6.2.0",
+    "typeface-lora": "^1.1.13",
+    "typeface-roboto-mono": "^1.1.13",
+    "typeface-titillium-web": "^1.1.13"
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build": "env-cmd -f .env.local react-scripts build",
+    "build-ns": "env-cmd -f .env.prod.nostyle node scripts/build-nostyled.js --prod && npm run postbuild",
+    "build-prod": "env-cmd -f .env node scripts/build-styled.js --prod && npm run postbuild",
+    "postbuild": "gzipper compress ./build --gzip --brotli --include js,css,"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "react-app/jest"
+      "react-app"
     ]
   },
   "browserslist": {
@@ -34,5 +47,15 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "env-cmd": "^10.1.0",
+    "gzipper": "^7.2.0",
+    "postcss": "^8.4.38",
+    "react-app-rewired": "^2.2.1",
+    "rewire": "^7.0.0",
+    "sass": "^1.75.0",
+    "tailwindcss": "^3.4.3"
   }
 }

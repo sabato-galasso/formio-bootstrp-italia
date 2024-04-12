@@ -1,17 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import r2wc from "@r2wc/react-to-web-component"
+import App2 from "./App2";
+import DatePickerInput from "./DatePicker";
+const WebApp = r2wc(App, {
+    props: {
+        url: "string",
+        noAlert: "boolean",
+        hide: "boolean",
+        readOnly: "boolean",
+        falseProp: "boolean",
+        arrayProp: "json",
+        submission: "json",
+        onChange: "function",
+    },
+})
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const WebApp2 = r2wc(App2, {
+    props: {
+        url: "string",
+        noAlert: "boolean",
+        hide: "boolean",
+        readOnly: "boolean",
+        falseProp: "boolean",
+        arrayProp: "json",
+        objProp: "json",
+        funcProp: "function",
+    },
+})
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+/*const DatePicker = r2wc(DatePickerInput, {
+    props: {
+        url: "string",
+        noAlert: "boolean",
+        hide: "boolean",
+        readOnly: "boolean",
+        falseProp: "boolean",
+        arrayProp: "json",
+        objProp: "json",
+        funcProp: "function",
+    },
+})*/
+
+customElements.define("web-app", WebApp)
+customElements.define("web-app2", WebApp2)
+//customElements.define("date-picker", DatePicker)
