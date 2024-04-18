@@ -1,14 +1,15 @@
-import Base from 'formiojs/components/_classes/component/Component';
+import {Components} from "@formio/js";
 import editForm from './PageBreak.form'
+const BaseComponent = Components.components.base;
 
-export default class FormioPageBreak extends Base {
+export default class FormioPageBreak extends BaseComponent {
     // eslint-disable-next-line no-useless-constructor
     constructor(component, options, data) {
         super(component, options, data);
     }
 
     static schema() {
-        return Base.schema({
+        return BaseComponent.schema({
             type: 'pagebreak'
         });
     }
@@ -16,7 +17,7 @@ export default class FormioPageBreak extends Base {
     static builderInfo = {
         title: 'PageBreak',
         group: 'basic',
-        icon: 'fa fa-calendar',
+        icon: 'bi bi-file-break',
         weight: 70,
         schema: FormioPageBreak.schema()
     }

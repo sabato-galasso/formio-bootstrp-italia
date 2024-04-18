@@ -1,25 +1,26 @@
 import './App.scss';
-import './index.css';
+//import './index.css';
 import FormioPageBreak from "./CustomComponent/PageBreak/PageBreak";
 import SdcFile from "./CustomComponent/FileSdc/SdcFile";
-import input from './customTemplates/templates/bootstrap/input/form.js'
-import checkbox from './customTemplates/templates/bootstrap/checkbox/form.js'
-import radio from './customTemplates/templates/bootstrap/radio/form.js'
-import component from './customTemplates/templates/bootstrap/component/form.js'
-import label from './customTemplates/templates/bootstrap/label/form.js'
-import fieldset from './customTemplates/templates/bootstrap/fieldset/index.js'
+
 //import Input from "./CustomComponent/Input/Input";
 //import "./customTemplates/use";
-import {Form, Templates,Formio} from "@formio/react";
+
+import bootstrapItalia from '@saba90/bootstrap-italia/bootstrapItalia';
+import {Form, Templates, Formio, Components} from "@formio/react";
 //import Button from "./customTemplates/components/Button/Button";
 //Formio.use(FormioPageBreak);
-Formio.registerComponent('pagebreak', FormioPageBreak);
+//Formio.registerComponent('pagebreak', FormioPageBreak);
 //Formio.registerComponent("textfield", Input);
 //Formio.registerComponent("sdcfile", SdcFile);
 //Formio.registerComponent("button1", Button);
+Components.addComponent('pagebreak',FormioPageBreak)
+Components.addComponent('sdcfile',SdcFile)
+Formio.use(bootstrapItalia);
 
+Templates.framework = bootstrapItalia
 
-Templates.current = {
+/*Templates.current = {
         input: {
             form: (ctx) => input(ctx),
         },
@@ -39,10 +40,10 @@ Templates.current = {
     fieldset:{
         form: (ctx) => fieldset(ctx),
     }
-};
+};*/
 console.log(Templates.current )
 function App({url,readOnly,submission,onChange}) {
-  console.log(url)
+
     const options = {
         readOnly: readOnly,
         noAlerts:false,

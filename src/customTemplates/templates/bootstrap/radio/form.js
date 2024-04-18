@@ -8,32 +8,15 @@ const getAttr = (attr) => {
     return attrs.join(" ");
 };
 const form = (ctx) => {
-    let checked
-    if(ctx.checked){
-        checked = 'checked=true'
-    }else{
-    }
-
-    let description
-    if(ctx.component.description) {
-        description = `aria-describedby="d-${ctx.instance.id}-${ctx.component.key}"`
-    }
-
-    let tooltip = ''
-    if(ctx.component.tooltip){
-        tooltip = `<i ref="tooltip" tabIndex="0" class="${ctx.iconClass('question-sign')} text-muted" data-tooltip="${ctx.component.tooltip}"></i>`
-    }
-    let labelIsHidden = ''
-    if(!ctx.self.labelIsHidden()){
-        labelIsHidden = `<span>${ctx.input.label}</span>`
-    }
 
     let options = ctx.values.map(function (item,index) {
         // return `<div class="${ctx.input.attr.type} ${ ctx.component.optionsLabelPosition && ctx.component.optionsLabelPosition !== 'right' ? 'pl-0' : ''} form-check${ctx.inline ? '-inline' : ''}" ref="wrapper">`
         return `  <div class="form-check ${ctx.inline ? 'form-check-inline' : ''}">
-    <input  value="${item.value}" ${getAttr(ctx.input.attr)} name="gruppo-${ctx.id}" type="radio" id="${ctx.instance.root && ctx.instance.root.id}-${ctx.id}}-${ctx.row}-${(typeof item.value === 'object') ? item.value + '-' + index : item.value}"  
+    <input  value="${item.value}" ${getAttr(ctx.input.attr)} name="gruppo-${ctx.id}" type="radio" 
+    id="${ctx.instance.root && ctx.instance.root.id}-${ctx.id}}-${ctx.row}-${(typeof item.value === 'object') ? item.value + '-' + index : item.value}"  
     ref="input"  role="${ctx.component.type === 'selectboxes' ? 'checkbox' : 'radio'}"
       ${(ctx.value && (ctx.value === item.value || (typeof ctx.value === 'object' && ctx.value.hasOwnProperty(item.value) && ctx.value[item.value]))) ? `checked=true`: ''}
+      ${(item.disabled) ? `disabled=true`: ''}
     ">
     <label for="${ctx.instance.root && ctx.instance.root.id}-${ctx.id}}-${ctx.row}-${(typeof item.value === 'object') ? item.value + '-' + index : item.value}">${ctx.t(item.label, { _userInput: true })}</label>
   </div>`

@@ -1,8 +1,7 @@
-import App from './App';
+import App from './AppForm';
 import r2wc from "@r2wc/react-to-web-component"
-import App2 from "./App2";
-import DatePickerInput from "./DatePicker";
-const WebApp = r2wc(App, {
+import AppFormBuilder from "./AppFormBuilder";
+const WebAppForm = r2wc(App, {
     props: {
         url: "string",
         noAlert: "boolean",
@@ -15,7 +14,7 @@ const WebApp = r2wc(App, {
     },
 })
 
-const WebApp2 = r2wc(App2, {
+const WebAppformBuilder = r2wc(AppFormBuilder, {
     props: {
         url: "string",
         noAlert: "boolean",
@@ -24,23 +23,9 @@ const WebApp2 = r2wc(App2, {
         falseProp: "boolean",
         arrayProp: "json",
         objProp: "json",
-        funcProp: "function",
+        onChange: "function",
     },
 })
 
-/*const DatePicker = r2wc(DatePickerInput, {
-    props: {
-        url: "string",
-        noAlert: "boolean",
-        hide: "boolean",
-        readOnly: "boolean",
-        falseProp: "boolean",
-        arrayProp: "json",
-        objProp: "json",
-        funcProp: "function",
-    },
-})*/
-
-customElements.define("web-app", WebApp)
-customElements.define("web-app2", WebApp2)
-//customElements.define("date-picker", DatePicker)
+customElements.define("form-app", WebAppForm)
+customElements.define("form-builder", WebAppformBuilder)

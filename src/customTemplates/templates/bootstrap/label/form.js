@@ -8,7 +8,7 @@ const form = (ctx) => {
     return `
 <label
   ref="label"
-  class="col-form-label ${ctx.label.className}"
+  class="col-form-label ${ctx.label.className} ${ctx.component.inputType}"
   for="${ctx.instance.id}-${ctx.component.key}"
   id="l-${ctx.instance.id}-${ctx.component.key}"
 >

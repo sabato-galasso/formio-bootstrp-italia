@@ -1,0 +1,19 @@
+pages:
+  image: node:16-alpine
+  script:
+    - apk add --no-cache git openssh
+    - yarn cache clean
+    - yarn install --network-concurrency 1
+    - rm -rf public
+    - mkdir public
+    - cp -r build/* public
+  artifacts:
+    paths:
+      - public
+  only:
+    variables:
+      - $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+variables:
+  GIT_SUBMODULE_STRATEGY: recursive
+  PUBLIC_URL: https://gitlab.com/opencity-labs/formbuilder-bootstrap-italia

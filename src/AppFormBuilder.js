@@ -1,15 +1,9 @@
 import './App.scss';
 import {FormBuilder,Components} from "@formio/react";
-//FormioPageBreak from "./CustomComponent/PageBreak/PageBreak";
-//Formio.registerComponent("sdcfile", SdcFile);
-//import ReactShadowRoot from 'react-shadow-root';
-//import SdcFile from "./CustomComponent/FileSdc/SdcFile";
-//Formio.use(FormioPageBreak);
-//Formio.registerComponent('pagebreak', FormioPageBreak);
 import components from "./Custom";
 
 Components.setComponents(components);
-function App2({url,readOnly,submission,onChange}) {
+function AppFormBuilder({url,readOnly,submission,onChange}) {
   console.log(url)
 
   return (
@@ -214,10 +208,10 @@ function App2({url,readOnly,submission,onChange}) {
                   },
                 },
               }}
-              onChange={(schema) => console.log(schema)}
+              onChange={onChange}
           />
         </div>
   );
 }
 
-export default App2;
+export default AppFormBuilder;

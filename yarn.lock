@@ -1952,6 +1952,18 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.10.2.tgz#053f1540703faa81dea2966b768ee5581c66aeda"
   integrity sha512-hw437iINopmQuxWPSUEvqE56NCPsiU8N4AYtfHmJFckclktzK9YQJieD3XkDCDH4OjL+C7zgPUh73R/nrcHrqw==
 
+"@saba90/bootstrap-italia@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@saba90/bootstrap-italia/-/bootstrap-italia-0.0.1.tgz#6e7b0b1ae6e325c6460d0a03f19b8abc80192086"
+  integrity sha512-YFHb3Tfg8Etyf888zpEmm8KnSOFuhD4ePYdqusBd5sKBke69PDdoX7a50/59PBSWVLAiYFsm1rwbGBZOgxiuVA==
+
+"@saba90/bootstrap-italia@^0.0.5":
+  version "0.0.5"
+  resolved "https://registry.yarnpkg.com/@saba90/bootstrap-italia/-/bootstrap-italia-0.0.5.tgz#a8aef4d9aed359064ac45a5fcd0aed7a6cc08d03"
+  integrity sha512-C10CIHszDHALBgGmi7vldDCUp9xsx57Tek/0sAw7BVGPHCnntsNYs0sh+752FEi9OnxOY4xkxP3BJR8Nku9nvA==
+  dependencies:
+    "@saba90/bootstrap-italia" "^0.0.1"
+
 "@sinclair/typebox@^0.24.1":
   version "0.24.51"
   resolved "https://registry.yarnpkg.com/@sinclair/typebox/-/typebox-0.24.51.tgz#645f33fe4e02defe26f2f5c0410e1c094eac7f5f"
